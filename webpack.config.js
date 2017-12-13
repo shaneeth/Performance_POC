@@ -49,7 +49,7 @@ module.exports = {
                 exclude: /node_modules/,
                 loader: 'babel-loader',
                 query: {
-                   presets: ['env', 'react']
+                   presets: ['env', 'react', 'stage-2']
                 }
             },
             {
@@ -100,6 +100,7 @@ module.exports = {
     devServer: {
         port: '8000',
         host: 'localhost',
+        historyApiFallback: true,
         watchOptions: {
             ignored: /node_modules/
         }        

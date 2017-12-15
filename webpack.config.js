@@ -27,7 +27,10 @@ module.exports = {
     },
     resolve: {
         alias: {
-            '@utility': path.resolve(__dirname, 'src/utility')
+            '@utility': path.resolve(__dirname, 'src/utility'),
+            '@common': path.resolve(__dirname, 'src/app/common'),
+            '@mui': 'material-ui',
+            '@mIcons': 'material-ui-icons'
         },
         extensions: ['.js', '.jsx', '.json', '.css', '.less', '.sass']
     },

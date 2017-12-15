@@ -3,18 +3,17 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import getMuiTheme  from 'material-ui/styles/getMuiTheme';
+import { MuiThemeProvider, createMuiTheme} from '@mui/styles';
 import baseTheme from '@utility/Theme';
 import App from './app/App';
 import reducers from './app/reducers';
 import './styles';
 
 const store = createStore(reducers);
-const theme = getMuiTheme(baseTheme);
+const theme = createMuiTheme(baseTheme);
 
 ReactDOM.render(
-    <MuiThemeProvider muiTheme={theme}>
+    <MuiThemeProvider theme={theme}>
         <Provider store={store}>
             <Router>
                 <App />                

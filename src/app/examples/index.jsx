@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
 import { connect} from 'react-redux';
-import { actionChangeTitle } from '../header/actions'
-import headerConstants from '../header/constants';
 
 class Examples extends Component {
 
     processMatchParams({ match }) {
-        this.props.changeHeaderMenu(headerConstants.MENU_MAP[match.params.type]); 
+        
     }
 
     componentWillMount() {
@@ -41,9 +39,7 @@ const mapStateToProps = (state, ownProps) => {
 }
 
 const mapDispatchToProps = dispatch => {
-    return {
-        changeHeaderMenu: (name)=> dispatch(actionChangeTitle(name))
-    }
+    return {}
 }
 
 

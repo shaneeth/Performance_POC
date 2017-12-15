@@ -1,20 +1,28 @@
+import HomeIcon from '@mIcons/Home'
+import ViewListIcon from '@mIcons/ViewList'
+
 let constants = {};
 
 constants.MENUS = [{
     name: 'Dashboard',
-    link: '/'
+    link: '/',
+    icon: HomeIcon
 }, {
     name: 'Css',
-    link: '/css'
+    link: '/css',
+    icon: ViewListIcon
 }, {
     name: 'Less',
-    link: '/less'
+    link: '/less',
+    icon: ViewListIcon
 }, {
     name: 'Sass',
-    link: '/sass'
+    link: '/sass',
+    icon: ViewListIcon
 }, {
     name: 'Assets',
-    link: '/assets'
+    link: '/assets',
+    icon: ViewListIcon
 }];
 
 

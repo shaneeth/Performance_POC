@@ -1,37 +1,43 @@
-import React, { Component } from 'react';
-import List, { ListItem } from 'material-ui/List';
+import React, { PureComponent } from 'react';
 import { Link } from 'react-router-dom';
-import constants from './constants';
+import PropTypes from 'prop-types';
+import List, { ListItem, ListItemIcon, ListItemText } from '@mui/List';
+import { withStyles } from '@mui/styles';
+import constants from '../nav/constants';
 
-const menuList = [
-    {
-        name: 'Dashboard',
-        link: '/'
-    }, {
-        name: constants.MENU_MAP.css,
-        link: '/css'
-    }, {
-        name: constants.MENU_MAP.less,
-        link: '/less'
-    }, {
-        name: constants.MENU_MAP.sass,
-        link: '/sass'
-    }, {
-        name: constants.MENU_MAP.assets,
-        link: '/assets'
-    }];
+const menuList = constants.MENUS;
+const styles = theme => ({
+    menuWrap: {
+        minWidth: '300px',
+        background: theme.palette.background.paper
+    }
+});
 
-class MenuList extends Component {
+class MenuList extends PureComponent {
+    constructor() {
+        super();
+        this.onMenuClick = this.onMenuClick.bind(this);
+    }
+    onMenuClick(...args) {
+        const { onMenuClick } = this.props;
+        if(onMenuClick) {
+            onMenuClick(...args);
+        }
+    }
     render() {
+        const { classes } = this.props;
         return (
-            <div>
+            <div className={classes.menuWrap}>
                 <List>
                     {
                         menuList.map((menu) => (
                             <Link key={menu.name}
                                   to={menu.link}>
-                                <ListItem >
-                                    {menu.name}
+                                <ListItem button onClick={this.onMenuClick}>
+                                    <ListItemIcon>
+                                        <menu.icon />
+                                    </ListItemIcon>
+                                    <ListItemText primary={menu.name}></ListItemText>
                                 </ListItem>
                             </Link>
                         ))
@@ -42,4 +48,8 @@ class MenuList extends Component {
     }
 }
 
-export default MenuList;
+MenuList.propTypes = {
+    classes: PropTypes.object.isRequired
+};
+
+export default withStyles(styles)(MenuList);

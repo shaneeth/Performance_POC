@@ -27,7 +27,8 @@ module.exports = {
     },
     resolve: {
         alias: {
-            '@utility': path.resolve(__dirname, 'src/utility')
+            '@utility': path.resolve(__dirname, 'src/utility'),
+            '@common': path.resolve(__dirname, 'src/app/common')
         },
         extensions: ['.js', '.jsx', '.json', '.css', '.less', '.sass']
     },

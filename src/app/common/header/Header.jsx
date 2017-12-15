@@ -3,29 +3,34 @@ import { connect } from 'react-redux';
 import AppBar from 'material-ui/AppBar';
 import Toolbar from 'material-ui/Toolbar';
 import Drawer from 'material-ui/Drawer';
-import { actionToggleMenus } from './actions';
 import MenuList from './MenuList';
 
 class Header extends Component {
     constructor() {
         super();
+        this.state = {
+            isMenuVisible: false
+        };
         this.toggleMenus = this.toggleMenus.bind(this);
         this.onDrawerChange = this.onDrawerChange.bind(this);
     }
     toggleMenus() {
-        this.props.toggleMenus();
+        this.setState((prevState) => ({isMenuVisible: !prevState.isMenuVisible}));        
     }
     onDrawerChange(isOpen, type) {
         if(!isOpen) {
-            this.props.toggleMenus(false);
+            this.setState({
+                isMenuVisible: false
+            });            
         }
     }
     render() {
-        const { header } = this.props;
+        const { title } = this.props;
+        const { isMenuVisible } = this.state;
         return (
             <div>
-                <AppBar position="static" title={header.title} onLeftIconButtonClick={this.toggleMenus}>
-                    <Drawer open={header.isMenuVisible} 
+                <AppBar position="static" title={title} onLeftIconButtonClick={this.toggleMenus}>
+                    <Drawer open={isMenuVisible} 
                             onRequestChange={this.onDrawerChange} 
                             docked={false}>
                             <div onClick={this.toggleMenus}>
@@ -38,17 +43,4 @@ class Header extends Component {
     }
 }
 
-const mapStateToProps = state => {
-    const { header } = state;
-    return {
-        header
-    }
-}
-
-const mapDispatchToProps = dispatch => {
-    return {
-        toggleMenus: (flag) => dispatch(actionToggleMenus(flag))
-    }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Header);
+export default Header;

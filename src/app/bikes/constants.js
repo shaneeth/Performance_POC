@@ -1,4 +1,4 @@
-const ns = 'DASHBOARD_';
+const ns = 'BIKES_';
 let constants = {};
 const createConstants = (name) => {
     constants[name] = ns + name;

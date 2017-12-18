@@ -2,11 +2,12 @@ import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
 import Nav from '@common/nav';
 import Dashboard from './dashboard';
-import Examples from './examples';
+import Places from './places';
+import Donuts from './donuts';
+import Bikes from './bikes'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './styles.css';
 import './styles.less';
-import './styles.sass';
+
 
 class App extends Component {
     render() {
@@ -15,7 +16,9 @@ class App extends Component {
                 <Nav />
                 <div className="content">
                     <Route exact={true} path="/" component={Dashboard} />
-                    <Route path="/:type" component={Examples} />
+                    <Route path="/places" component={Places} />
+                    <Route path="/donuts" component={Donuts} />
+                    <Route path="/bikes" component={Bikes} />
                 </div>                
             </div>        
         )

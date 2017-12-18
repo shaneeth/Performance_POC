@@ -1,8 +1,8 @@
 import constants from './constants';
 
-const dasboard = (state = {
-    isLoading: false,
-    list: []
+const donuts = (state = {
+    list: [],
+    isLoading: false
 }, action) => {
     switch(action.type) {
         case constants.REQUEST:
@@ -17,7 +17,7 @@ const dasboard = (state = {
                 list: action.data || []
             }
     }
-    return state
-};
+    return state;
+}
 
-export default dasboard;
+export default donuts;

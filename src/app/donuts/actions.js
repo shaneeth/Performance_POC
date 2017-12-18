@@ -16,7 +16,7 @@ const receiveDonuts = (data) => {
 export const fetchDonuts = () => {
     return dispatch => {
         dispatch(requestDonuts());
-        return fetch('assets/json/places-original.json')
+        return fetch('assets/json/donuts-original.json')
                 .then(data => dispatch(receiveDonuts(data)))
     }    
 }

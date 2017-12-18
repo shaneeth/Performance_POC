@@ -32,12 +32,12 @@ class CustomCard extends Component {
         } = this.props;
         return (
             <div>
-                <Card>
+                <Card className="card">
                     <CardMedia 
                         className = "card-media"
                         image={imageUrl || 'assets/image.svg'} />
                     <CardContent>
-                        <Typography type="headline" component="h2">
+                        <Typography type="headline" component="h2" className="card-title">
                             {title}
                         </Typography>
                         <Typography component="div" className="card-desc">
@@ -45,16 +45,17 @@ class CustomCard extends Component {
                         </Typography>
                     </CardContent>
                     <CardActions>
-                        <Button dense color="primary" onClick={this.openDialog}>Learn More</Button>
+                        <Button dense color="primary" onClick={this.openDialog}>See More</Button>
                     </CardActions>
                 </Card>
                 <Dialog open={this.state.isDialogOpen}
                         onClose={this.closeDialog}
                         onBackdropClick={this.closeDialog}
-                        onEscapeKeyUp={this.closeDialog}>
-                    <DialogTitle>{title}</DialogTitle>
+                        onEscapeKeyUp={this.closeDialog}
+                        className="dialog">
+                    <DialogTitle className="dialog-title">{title}</DialogTitle>
                     <DialogContent>
-                        <DialogContentText>{desc}</DialogContentText>
+                        <DialogContentText className="dialog-desc">{desc}</DialogContentText>
                     </DialogContent>
                     <DialogActions>
                         <Button dense color="primary" onClick={this.closeDialog}>

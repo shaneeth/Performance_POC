@@ -16,7 +16,7 @@ const receiveBikes = (data) => {
 export const fetchBikes = () => {
     return dispatch => {
         dispatch(requestBikes());
-        return fetch('assets/json/places-original.json')
+        return fetch('assets/json/bikes-original.json')
                 .then(data => dispatch(receiveBikes(data)))
     }    
 }

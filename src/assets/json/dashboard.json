@@ -1,6 +1,6 @@
 [
     {
-        "count": 2000,
+        "count": 4900,
         "title": "Total",
         "type": "all"
     },
@@ -10,12 +10,12 @@
         "type": "place"
     },
     {
-        "count": 0,
+        "count": 1800,
         "title": "Donuts",
         "type": "donut"
     },
     {
-        "count": 0,
+        "count": 1100,
         "title": "Bikes",
         "type": "bike"
     }

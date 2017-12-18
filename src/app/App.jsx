@@ -1,3 +1,4 @@
+import 'bootstrap/dist/css/bootstrap.min.css';
 import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
 import Nav from '@common/nav';
@@ -5,7 +6,6 @@ import Dashboard from './dashboard';
 import Places from './places';
 import Donuts from './donuts';
 import Bikes from './bikes'
-import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles.less';
 
 

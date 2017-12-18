@@ -1,5 +1,8 @@
-import HomeIcon from '@mIcons/Home'
-import ViewListIcon from '@mIcons/ViewList'
+import HomeIcon from '@mIcons/Home';
+import ViewListIcon from '@mIcons/ViewList';
+import PlaceIcon from '@mIcons/Place';
+import DonutSmall from '@mIcons/DonutSmall';
+import MotorCycle from '@mIcons/MotorCycle';
 
 let constants = {};
 
@@ -8,21 +11,21 @@ constants.MENUS = [{
     link: '/',
     icon: HomeIcon
 }, {
-    name: 'Css',
-    link: '/css',
+    name: 'All',
+    link: '/all',
     icon: ViewListIcon
 }, {
-    name: 'Less',
-    link: '/less',
-    icon: ViewListIcon
+    name: 'Places',
+    link: '/places',
+    icon: PlaceIcon
 }, {
-    name: 'Sass',
-    link: '/sass',
-    icon: ViewListIcon
+    name: 'Donuts',
+    link: '/donuts',
+    icon: DonutSmall
 }, {
-    name: 'Assets',
-    link: '/assets',
-    icon: ViewListIcon
+    name: 'Bikes',
+    link: '/bikes',
+    icon: MotorCycle
 }];
 
 

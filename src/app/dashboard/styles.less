@@ -1,0 +1,40 @@
+@import '../common/styles/variables.less';
+
+.create-colors(@c1, @c2, @c3) {
+    background-color: @c1;
+    color: @c2;   
+    &:hover {
+        background-color: @c3;
+    }
+}
+.dashboard {
+    .stat {
+        width: 100%;
+        padding: 50px 20px;
+        display: inline-block;
+        text-align: center;
+        user-select: none;
+        margin-bottom: 30px;
+        .count {
+            font-size: 50px;
+            font-weight: lighter;
+        }
+        .title {
+            margin-top: 15px;
+            font-size: 30px;
+            font-weight: lighter;
+        }
+    }
+    .c-orange {
+        .create-colors(@color-orange, @color-o50, @color-o600);
+    }
+    .c-red {
+        .create-colors(@color-red, @color-r50, @color-r600);
+    }
+    .c-purple {
+        .create-colors(@color-purple, @color-p50, @color-p600);
+    }
+    .c-green {
+        .create-colors(@color-green, @color-g50, @color-g600);
+    }
+}

@@ -3,7 +3,8 @@ const path = require('path');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const pkg = require('./package.json');
 
 const root = path.resolve(__dirname);
@@ -62,19 +63,30 @@ module.exports = {
             },
             {
                 test: /\.css$/,
-                use: ['style-loader', 'css-loader']
+                use: ExtractTextPlugin.extract({
+                    fallback: 'style-loader',
+                    use: 'css-loader'
+                })
             },
             {
                 test: /\.less$/,
-                use: ['style-loader', 'css-loader', 'less-loader']
+                use: ExtractTextPlugin.extract({
+                    fallback: 'style-loader',
+                    use: ['css-loader', 'less-loader']
+                })
             },
             {
                 test: /\.sass$/,
-                use: ['style-loader', 'css-loader', 'sass-loader']
+                use: ExtractTextPlugin.extract({
+                    fallback: 'style-loader',
+                    use: ['css-loader', 'sass-loader']
+                })
             }
         ]
     },
     plugins: [
+        new ExtractTextPlugin('style.css'),
+        new UglifyJsPlugin(),
         new webpack.LoaderOptionsPlugin({
             minimize: false,
             debug: true
@@ -100,14 +112,6 @@ module.exports = {
             filename: fileConfig.indexHtml,
             hash: false
         })
-    ],
-    devServer: {
-        port: '8000',
-        host: 'localhost',
-        historyApiFallback: true,
-        watchOptions: {
-            ignored: /node_modules/
-        }        
-    }    
+    ]  
 };
 

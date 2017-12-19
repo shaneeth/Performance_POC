@@ -13,10 +13,21 @@ const receiveDonuts = (data) => {
     });
 }
 
-export const fetchDonuts = () => {
+const nextPage = () => {
+    return createAction(constants.NEXT_PAGE);
+}
+
+export const resetDonuts = () => {
+    return createAction(constants.RESET);
+}
+
+export const fetchDonuts = (page) => {
     return dispatch => {
         dispatch(requestDonuts());
-        return fetch('assets/json/donuts-original.json')
-                .then(data => dispatch(receiveDonuts(data)))
+        return fetch(`assets/json/donuts/${page}.json`)
+                .then(data => {
+                    dispatch(nextPage())
+                    dispatch(receiveDonuts(data))
+                })
     }    
 }

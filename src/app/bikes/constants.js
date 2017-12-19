@@ -7,5 +7,8 @@ const createConstants = (name) => {
 createConstants('REQUEST');
 createConstants('RECEIVE');
 createConstants('FETCH');
+createConstants('RESET');
+createConstants('NEXT_PAGE');
+createConstants('PREVIOUS_PAGE');
 
 export default constants;

@@ -13,10 +13,22 @@ const receiveBikes = (data) => {
     });
 }
 
-export const fetchBikes = () => {
+export const resetBikes = () => {
+    return createAction(constants.RESET)
+}
+
+export const nextPage = () => {
+    return createAction(constants.NEXT_PAGE)
+}
+
+export const previousPage = () => {
+    return createAction(constants.PREVIOUS_PAGE)
+}
+
+export const fetchBikes = (page) => {
     return dispatch => {
         dispatch(requestBikes());
-        return fetch('assets/json/bikes-original.json')
+        return fetch(`assets/json/bikes/${page}.json`)
                 .then(data => dispatch(receiveBikes(data)))
     }    
 }

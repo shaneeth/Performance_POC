@@ -9,7 +9,7 @@ class Dashboard extends Component {
         super()
         this.classes = ['c-red', 'c-green', 'c-purple', 'c-orange']
         this.mapTypes = {
-            all: '/all',
+            all: '/',
             place: '/places',
             donut: '/donuts',
             bike: '/bikes'

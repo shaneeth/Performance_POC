@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'; 
 import Bikes from './Bikes';
-import { fetchBikes } from './actions';
+import { fetchBikes, nextPage, previousPage,  resetBikes } from './actions';
 
 const mapStateToProps = state => {
     return {
@@ -10,7 +10,10 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        fetchBikes: () => dispatch(fetchBikes())
+        fetchBikes: (page) => dispatch(fetchBikes(page)),
+        nextPage: () => dispatch(nextPage()),
+        previousPage: () => dispatch(previousPage()),
+        reset: () => dispatch(resetBikes())
     }
 }
 

@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'; 
 import Donuts from './Donuts';
-import { fetchDonuts } from './actions';
+import { fetchDonuts, resetDonuts} from './actions';
 
 const mapStateToProps = state => {
     return {
@@ -10,7 +10,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        fetchDonuts: () => dispatch(fetchDonuts())
+        fetchDonuts: (page) => dispatch(fetchDonuts(page)),
+        reset: () => dispatch(resetDonuts())
     }
 }
 

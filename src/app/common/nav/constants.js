@@ -11,10 +11,6 @@ constants.MENUS = [{
     link: '/',
     icon: HomeIcon
 }, {
-    name: 'All',
-    link: '/all',
-    icon: ViewListIcon
-}, {
     name: 'Places',
     link: '/places',
     icon: PlaceIcon

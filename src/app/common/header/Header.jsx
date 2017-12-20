@@ -39,7 +39,7 @@ class Header extends Component {
         const { isMenuVisible } = this.state;
         return (
             <div>
-                <AppBar position="static">
+                <AppBar>
                     <Toolbar>
                         <IconButton color="inherit" onClick={this.toggleMenus}>
                             <MenuIcon />

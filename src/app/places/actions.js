@@ -16,7 +16,7 @@ const receivePlaces = (data) => {
 export const fetchPlaces = () => {
     return dispatch => {
         dispatch(requestPlaces());
-        return fetch('assets/json/places-original.json')
+        return fetch('assets/json/places.json')
                 .then(data => dispatch(receivePlaces(data)))
     }    
 }

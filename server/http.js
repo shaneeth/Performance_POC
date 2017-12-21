@@ -10,7 +10,7 @@ const PUBLIC_PATH = path.join(__dirname, './public')
 //app.use(express.static('public'));
 
 app.all('*', function (req, res) {
-   console.log(req.path);
+   console.log('HTTP - ', req.path);
    let reqPath = req.path === '/' ? '/index.html' : req.path
    let absolutePath = path.join(PUBLIC_PATH, reqPath);
    fs.access(absolutePath, fs.constants.R_OK, function(error) {

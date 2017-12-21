@@ -6,8 +6,8 @@ const http2 = require('http2')
 const helper = require('./helper')
 
 const { HTTP2_HEADER_PATH } = http2.constants
-const PORT = process.env.PORT || 3000
-const PUBLIC_PATH = path.join(__dirname, './public')
+const PORT = process.env.PORT || 3200
+const PUBLIC_PATH = path.join(__dirname, './public2')
 const publicFiles = helper.getFiles(PUBLIC_PATH)
 const donutFiles = helper.getDonutFiles(PUBLIC_PATH)
 const server = http2.createSecureServer({
@@ -30,7 +30,7 @@ function push (stream, path) {
 
 // Request handler
 function onRequest (req, res) {
-  console.log(req.url);
+  console.log('HTTP2 - ', req.url);
   let file, nextFile;
   const donutMap = helper.mapDonuts(req.url);
   if(donutMap) {
@@ -58,7 +58,7 @@ function onRequest (req, res) {
 
   // Push with index.html
   if (reqPath === '/index.html') {
-    //push(res.stream, '/vendor.js')
+    push(res.stream, '/vendor.js')
     push(res.stream, '/bundle.js')
     push(res.stream, '/style.css')
   }

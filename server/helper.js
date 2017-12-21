@@ -16,7 +16,7 @@ function getFiles (baseDir) {
     files.set(`/${fileName}`, {
       fileDescriptor,
       headers: {
-        'Cache-Control': 'max-age=20, public',
+        /* 'Cache-Control': 'max-age=20, public', */
         'content-length': stat.size,
         'last-modified': stat.mtime.toUTCString(),
         'content-type': contentType
